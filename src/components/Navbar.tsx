@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
-export default function Navbar() {
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+export default function Navbar({ logo }: { logo: any }) {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   {
     /* Als je de site van grootte veranderd and worden de link dingen zoals projects in een burger gestopt */
@@ -13,6 +17,31 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    if (href.startsWith("#")) {
+      const sectionId = href.slice(1);
+      if (location.pathname !== "/") {
+        // Navigate to home first, then scroll after render
+        navigate("/");
+        setTimeout(() => {
+          document
+            .getElementById(sectionId)
+            ?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   const navLinks = [
     { name: "Projecten", href: "#projects" },
     { name: "Over mij", href: "#about" },
@@ -20,13 +49,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 px-4">
-      {/* De "Pill" container */}
-      <div className="mx-auto max-w-5xl bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-full px-6 py-3 flex items-center justify-between">
+    <nav className="fixed top-4 left-0 right-0 z-50 px-4 ">
+      <div className="mx-auto max-w-5xl bg-gray-200/75 backdrop-blur-md border border-gray-200 shadow-lg rounded-full px-6 py-3 flex items-center justify-between">
         {/* LOGO */}
-        <div className="text-xl font-bold tracking-tighter text-gray-900">
+        <Link to="/" className="p-[1px] rounded-full bg-main-gradient ">
+          <img
+            src={logo}
+            className="h-12 w-12 rounded-full border-2 border-gray-800 "
+            alt="Xander Kortekaas"
+          />
+        </Link>
+
+        <Link
+          to="/"
+          className="text-xl font-bold tracking-tighter text-gray-900"
+        >
           Xander Kortekaas<span className="text-accent-blue">.</span>
-        </div>
+        </Link>
 
         <h1 className="text-xl font-extrabold text-transparent bg-clip-text bg-main-gradient">
           Digital Portfolio
@@ -37,7 +76,8 @@ export default function Navbar() {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-color-gray-700 hover:text-accent-indigo transition-colors"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium text-gray-700 hover:text-accent-indigo transition-colors"
               >
                 {link.name}
               </a>
@@ -54,7 +94,7 @@ export default function Navbar() {
           {/* Hamburger Icon voor Mobiel */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-color-gray-600 hover:bg-gray-100 rounded-full transition"
+            className="lg:hidden p-2 text-gray-600 hover:bg-gray-500 rounded-full transition"
           >
             {isOpen ? (
               <svg
@@ -99,7 +139,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className="text-center py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-lg"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
             </a>
