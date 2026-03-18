@@ -3,6 +3,7 @@ import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
+import AboutMe from "./components/AboutMe";
 import logo from "./assets/YE.png";
 
 function HomePage() {
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route path="/about" element={<AboutMe />} />
       </Routes>
     </div>
   );

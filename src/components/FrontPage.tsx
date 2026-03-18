@@ -20,7 +20,7 @@ export default function FrontPage({ logo }: { logo: any }) {
               Xander Kortekaas
             </div>
             <p className="text-gray-400 mt-1 text-sm leading-relaxed">
-              Junior Developer | Welkom op mijn digitale portfolio.
+              Junior Developer | Welcome to my portfolio.
             </p>
           </div>
         </div>

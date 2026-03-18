@@ -43,8 +43,8 @@ export default function Navbar({ logo }: { logo: any }) {
   };
 
   const navLinks = [
-    { name: "Projecten", href: "#projects" },
-    { name: "Over mij", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "About me", href: "/about" },
     { name: "Skills", href: "#skills" },
   ];
 
@@ -74,22 +74,34 @@ export default function Navbar({ logo }: { logo: any }) {
         <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-gray-700 hover:text-accent-indigo transition-colors"
-              >
-                {link.name}
-              </a>
+              {link.href.startsWith("#") ? (
+                <a
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm font-medium text-gray-700 hover:text-accent-indigo transition-colors"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  to={link.href}
+                  className="text-sm font-medium text-gray-700 hover:text-accent-indigo transition-colors"
+                >
+                  {link.name}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
 
         {/* CONTACT KNOP & MOBILE MENU BUTTON */}
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-200">
+          <a
+            href="mailto: xander.kortekaas@gmail.com"
+            className="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-200 text-center"
+          >
             Contact
-          </button>
+          </a>
 
           {/* Hamburger Icon voor Mobiel */}
           <button
@@ -134,19 +146,33 @@ export default function Navbar({ logo }: { logo: any }) {
       {/* MOBIEL MENU (DROPDOWN) */}
       {isOpen && (
         <div className="lg:hidden mt-2 mx-auto max-w-xs bg-white border border-gray-100 shadow-xl rounded-2xl p-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-center py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-lg"
-              onClick={(e) => handleNavClick(e, link.href)}
-            >
-              {link.name}
-            </a>
-          ))}
-          <button className="bg-blue-600 text-white py-3 rounded-xl font-bold">
+          {navLinks.map((link) =>
+            link.href.startsWith("#") ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-center py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-lg"
+                onClick={(e) => handleNavClick(e, link.href)}
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-center py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            )
+          )}
+          <a
+            href="mailto:xander.kortekaas@gmail.com"
+            className="bg-blue-600 text-white py-3 rounded-xl font-bold text-center block"
+          >
             Contact
-          </button>
+          </a>
         </div>
       )}
     </nav>

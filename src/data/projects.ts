@@ -1,67 +1,86 @@
+export interface MediaItem {
+  type: "image" | "video";
+  url: string;
+  caption?: string;
+}
+
 export interface Project {
   id: number;
   title: string;
   description: string;
   longDescription: string;
   tags: string[];
-  githubUrl: string;
-  liveUrl: string;
+  githubUrl?: string;
+  liveUrl?: string;
   highlights: string[];
-  collaborators: string[];
+  projectType: string[];
+  media: MediaItem[];
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Digital Portfolio",
+    title: "Portfolio",
     description:
-      "Mijn persoonlijke portfolio gebouwd met React en TypeScript. Showcasest mijn projecten en vaardigheden met een modern dark theme.",
+      "My personal portfolio built with React and TypeScript. Showcases my projects and skills with a modern dark theme.",
     longDescription:
-      "Dit is mijn persoonlijke digitale portfolio website, gebouwd om mijn projecten, vaardigheden en ervaring te presenteren. De site is volledig gebouwd met React en TypeScript, met een modern dark theme dat gebruik maakt van glassmorphism en gradient accenten. De styling is gedaan met Tailwind CSS en het project wordt gebuild met Vite voor snelle development en optimale performance.",
+      "This is my personal portfolio website, built to present my projects, skills, and experience. The site is fully built with React and TypeScript, featuring a modern dark theme that uses glassmorphism and gradient accents. Styling is done with Tailwind CSS and the project is built with Vite for fast development and optimal performance.",
     tags: ["React", "TypeScript", "Tailwind CSS"],
-    githubUrl: "#",
-    liveUrl: "#",
     highlights: [
-      "Responsive design dat werkt op alle schermformaten",
-      "Modern dark theme met glassmorphism effecten",
-      "Gradient accenten en micro-animaties voor een premium look",
-      "Component-based architectuur met TypeScript",
+      "Responsive design that works on all screen sizes",
+      "Modern dark theme with glassmorphism effects",
+      "Gradient accents and micro-animations for a premium look",
+      "Component-based architecture with TypeScript",
     ],
-    collaborators: ["Solo project"],
+    projectType: ["Solo project"],
+    media: [],
   },
   {
     id: 2,
     title: "Night Racer",
     description: "A small racing game in the night",
     longDescription:
-      "Night Racer is een racegame gebouwd in Unity met C#. De speler racet door een donkere nachtelijke omgeving met dynamische verlichting en obstakels. Het project omvat game physics, een scoresysteem en sfeervolle nacht-graphics.",
+      "Night Racer is a racing game built in Unity with C#. The player races through a dark nighttime environment with dynamic lighting and obstacles. The project includes game physics, a scoring system, and atmospheric night graphics.",
     tags: ["Unity", "C#"],
-    githubUrl: "#",
-    liveUrl: "#",
+    githubUrl: "https://gitlab.glu.nl/220442/nachtrijder",
     highlights: [
-      "Game physics en besturing geïmplementeerd in C#",
-      "Dynamische verlichting voor nachtelijke sfeer",
-      "Score- en progressiesysteem",
-      "Obstakel-generatie en collision detection",
+      "Made controls implemented in C# and Unity",
+      "Made The 'car' movement",
+      "Made detection if the car wasn't flying",
     ],
-    collaborators: ["Solo project"],
+    projectType: ["Group Project"],
+    media: [
+      {
+        type: "image",
+        url: "/media/NightRacer.png",
+        caption: "A screenshot of the game",
+      },
+      {
+        type: "video",
+        url: "/media/The Dutchman.mp4",
+        caption: "Night Racer gameplay",
+      },
+    ],
   },
   {
     id: 3,
     title: "Unreal Engine",
     description:
-      "A small scene made in unreal with the unreal engine.",
+      "A small scene made in Unreal with the Unreal Engine.",
     longDescription:
-      "Een 3D scene gebouwd met Unreal Engine om de mogelijkheden van de engine te verkennen. Dit project richt zich op level design, materialen, verlichting en het creëren van een visueel aantrekkelijke omgeving. Het was een leerproject om ervaring op te doen met Unreal Engine's toolset.",
+      "A 3D scene built with Unreal Engine to explore the capabilities of the engine. This project focuses on level design, materials, lighting, and creating a visually appealing environment. It was a learning project to gain experience with Unreal Engine's toolset.",
     tags: ["Unreal Engine"],
-    githubUrl: "#",
-    liveUrl: "#",
     highlights: [
-      "Level design en environment art",
-      "Materialen en textures toegepast",
-      "Verlichting en sfeer gecreëerd",
-      "Unreal Engine workflow geleerd",
+      "Designed the environment",
+      "Materials and textures applied",
+      "Lighting and atmosphere created",
+      "Learned the Unreal Engine workflow",
     ],
-    collaborators: ["Solo project"],
+    projectType: ["Solo project"],
+    media: [{
+      type: "image",
+      url: "/media/Project-Unreal.png",
+      caption: "Unreal Engine scene",
+    },],
   },
 ];

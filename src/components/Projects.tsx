@@ -13,10 +13,10 @@ export default function Projects() {
       {/* Section header */}
       <div className="relative z-10 w-full max-w-5xl mb-12 text-center">
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-main-gradient">
-          Projecten
+          Projects
         </h2>
         <p className="text-gray-400 mt-2 text-sm">
-          Een overzicht van projecten die ik heb gebouwd.
+          An overview of the projects I've built.
         </p>
       </div>
 
@@ -28,7 +28,17 @@ export default function Projects() {
             key={project.id}
             className="p-[1px] rounded-2xl bg-main-gradient shadow-2xl group cursor-pointer hover:scale-[1.03] transition-transform duration-300"
           >
-            <div className="flex flex-col h-full rounded-2xl bg-gray-800 p-6 gap-4">
+            <div className="flex flex-col h-full rounded-2xl bg-gray-800 overflow-hidden">
+              {/* Thumbnail */}
+              {project.media.length > 0 && project.media.find(m => m.type === "image") && (
+                <img
+                  src={project.media.find(m => m.type === "image")!.url}
+                  alt={project.title}
+                  className="w-full h-40 object-cover"
+                />
+              )}
+
+              <div className="flex flex-col flex-1 p-6 gap-4">
               {/* Title */}
               <h3 className="text-lg font-bold text-transparent bg-clip-text bg-main-gradient">
                 {project.title}
@@ -53,7 +63,7 @@ export default function Projects() {
 
               {/* View details hint */}
               <div className="flex items-center gap-1 text-xs text-gray-500 group-hover:text-accent-cyan transition-colors mt-1">
-                <span>Bekijk details</span>
+                <span>View details</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -68,6 +78,7 @@ export default function Projects() {
                     d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                   />
                 </svg>
+              </div>
               </div>
             </div>
           </Link>

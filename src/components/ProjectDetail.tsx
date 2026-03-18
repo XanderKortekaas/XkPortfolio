@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
@@ -5,17 +6,21 @@ export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
   const project = projects.find((p) => p.id === Number(id));
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   if (!project) {
     return (
       <section className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
         <h1 className="text-3xl font-bold text-gray-300 mb-4">
-          Project niet gevonden
+          Project not found
         </h1>
         <Link
           to="/"
           className="text-accent-cyan hover:text-accent-violet transition-colors font-semibold"
         >
-          ← Terug naar home
+          ← Back to home
         </Link>
       </section>
     );
@@ -28,27 +33,6 @@ export default function ProjectDetail() {
       <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-accent-violet/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-3xl">
-        {/* Back button */}
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-accent-cyan transition-colors mb-8 group"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-4 h-4 group-hover:-translate-x-1 transition-transform"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-            />
-          </svg>
-          Terug naar projecten
-        </Link>
 
         {/* Main card */}
         <div className="p-[1px] rounded-2xl bg-main-gradient shadow-2xl animate-fade-in">
@@ -75,10 +59,47 @@ export default function ProjectDetail() {
               {project.longDescription}
             </p>
 
+            {/* Media gallery */}
+            {project.media.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-lg font-bold text-transparent bg-clip-text bg-main-gradient mb-4">
+                  Gallery
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {project.media.map((item, index) => (
+                    <figure key={index} className="group">
+                      {item.type === "image" ? (
+                        <img
+                          src={item.url}
+                          alt={item.caption || project.title}
+                          className="w-full rounded-xl border border-gray-700/50 object-cover aspect-video group-hover:scale-[1.02] transition-transform duration-300"
+                        />
+                      ) : (
+                        <video
+                          src={item.url}
+                          controls
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full rounded-xl border border-gray-700/50 object-cover aspect-video"
+                        />
+                      )}
+                      {item.caption && (
+                        <figcaption className="text-xs text-gray-500 mt-2 text-center">
+                          {item.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Highlights — What I did */}
             <div className="mb-8">
               <h2 className="text-lg font-bold text-transparent bg-clip-text bg-main-gradient mb-4">
-                Wat ik heb gedaan
+                What I did
               </h2>
               <ul className="space-y-3">
                 {project.highlights.map((highlight, index) => (
@@ -97,10 +118,10 @@ export default function ProjectDetail() {
             {/* Collaborators */}
             <div className="mb-8">
               <h2 className="text-lg font-bold text-transparent bg-clip-text bg-main-gradient mb-4">
-                Samengewerkt met
+                Project Type
               </h2>
               <div className="flex flex-wrap gap-3">
-                {project.collaborators.map((collaborator) => (
+                {project.projectType.map((collaborator) => (
                   <div
                     key={collaborator}
                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-700/60 border border-gray-600/50"
@@ -121,7 +142,9 @@ export default function ProjectDetail() {
             <div className="h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6" />
 
             {/* Links */}
+            {(project.githubUrl || project.liveUrl) && (
             <div className="flex flex-col sm:flex-row gap-3">
+              {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -140,6 +163,8 @@ export default function ProjectDetail() {
                   GitHub
                 </span>
               </a>
+              )}
+              {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
@@ -164,6 +189,32 @@ export default function ProjectDetail() {
                   Live Demo
                 </span>
               </a>
+              )}
+            </div>
+            )}
+
+            {/* Back button */}
+            <div className="mt-8 pt-6 border-t border-gray-700/50">
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full border-2 border-accent-cyan text-accent-cyan font-bold hover:bg-accent-cyan hover:text-gray-900 transition-all duration-300 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                  />
+                </svg>
+                Back to projects
+              </Link>
             </div>
           </div>
         </div>
