@@ -85,7 +85,11 @@ export default function Navbar({ logo }: { logo: any }) {
               ) : (
                 <Link
                   to={link.href}
-                  className="text-sm font-medium text-gray-700 hover:text-accent-indigo transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    location.pathname === link.href
+                      ? "text-accent-cyan font-bold drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
+                      : "text-gray-700 hover:text-accent-indigo"
+                  }`}
                 >
                   {link.name}
                 </Link>
@@ -160,7 +164,11 @@ export default function Navbar({ logo }: { logo: any }) {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-center py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-lg"
+                className={`text-center py-2 font-medium rounded-lg transition-colors ${
+                  location.pathname === link.href
+                    ? "text-accent-cyan bg-gray-50/50 font-bold"
+                    : "text-gray-700 hover:bg-gray-50"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

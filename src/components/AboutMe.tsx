@@ -16,19 +16,19 @@ const timeline = [
     year: "2022 – Present",
     title: "Software Development Student",
     description:
-      "Studying software development with a focus on web technologies, game development, and building real-world projects.",
+      "Studying software development with a specialization in Game Development.",
   },
   {
     year: "2023",
     title: "First Game Projects",
     description:
-      "Built Night Racer in Unity with C# and explored 3D environments in Unreal Engine.",
+      "Developed 'Night Racer' in Unity using C# and explored 3D environment design in Unreal Engine.",
   },
   {
     year: "2022",
     title: "Started Learning to Code",
     description:
-      "Took my first steps into programming, learning the fundamentals of HTML, CSS, and JavaScript.",
+      "Took my first steps into programming by mastering the fundamentals of HTML, CSS, and JavaScript.",
   },
 ];
 
@@ -65,8 +65,8 @@ export default function AboutMe() {
           </h1>
           <div className="h-[2px] w-16 bg-main-gradient rounded-full mb-4" />
           <p className="text-gray-400 text-lg max-w-md leading-relaxed">
-            — Junior Developer that is able to code —
-            sometimes it works on the first try and sometimes it doesn't. 
+            — Junior Developer focused on continuous growth —
+            always eager to explore new technologies and solve complex problems.
           </p>
         </div>
 

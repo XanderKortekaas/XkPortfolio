@@ -38,15 +38,15 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Night Racer",
-    description: "A small racing game in the night",
+    description: "A 3D nighttime racing game.",
     longDescription:
       "Night Racer is a racing game built in Unity with C#. The player races through a dark nighttime environment with dynamic lighting and obstacles. The project includes game physics, a scoring system, and atmospheric night graphics.",
     tags: ["Unity", "C#"],
     githubUrl: "https://gitlab.glu.nl/220442/nachtrijder",
     highlights: [
-      "Made controls implemented in C# and Unity",
-      "Made The 'car' movement",
-      "Made detection if the car wasn't flying",
+      "Implemented responsive vehicle controls using C# in Unity",
+      "Developed custom physics for realistic car movement",
+      "Created a reliable ground-detection system to ensure stable gameplay",
     ],
     projectType: ["Group Project"],
     media: [
@@ -66,15 +66,15 @@ export const projects: Project[] = [
     id: 3,
     title: "Unreal Engine",
     description:
-      "A small scene made in Unreal with the Unreal Engine.",
+      "A 3D environmental scene developed in Unreal Engine.",
     longDescription:
       "A 3D scene built with Unreal Engine to explore the capabilities of the engine. This project focuses on level design, materials, lighting, and creating a visually appealing environment. It was a learning project to gain experience with Unreal Engine's toolset.",
     tags: ["Unreal Engine"],
     highlights: [
-      "Designed the environment",
-      "Materials and textures applied",
-      "Lighting and atmosphere created",
-      "Learned the Unreal Engine workflow",
+      "Designed and structured the 3D environment",
+      "Applied high-quality materials and textures",
+      "Configured atmospheric lighting for enhanced visual fidelity",
+      "Gained hands-on experience with the Unreal Engine node workflow",
     ],
     projectType: ["Solo project"],
     media: [{
