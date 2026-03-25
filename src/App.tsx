@@ -6,6 +6,7 @@ import ProjectDetail from "./components/ProjectDetail";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
 import SkillDetail from "./components/SkillDetail";
+import NotFound from "./components/NotFound";
 import logo from "./assets/YE.png";
 
 function HomePage() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/project/:id" element={<ProjectDetail />} />
         <Route path="/skills/:id" element={<SkillDetail />} />
         <Route path="/about" element={<AboutMe />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
