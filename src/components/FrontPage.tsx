@@ -1,6 +1,6 @@
 export default function FrontPage({ logo }: { logo: any }) {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center p-6 bg-gray-900 text-white min-h-[80vh] relative overflow-hidden">
+    <section className="flex flex-col md:flex-row items-center justify-center p-6 bg-gray-900 text-white min-h-[60vh] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-blue/20 blur-[120px] rounded-full"></div>
 
       {/* DE CARD met gradient border effect */}

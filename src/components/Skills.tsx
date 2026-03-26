@@ -20,7 +20,7 @@ export default function Skills() {
       <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6">
         {skillCategories.map((category) => (
           <Link
-            to={`/skills/${category.id}`}
+            to={`/skills`}
             key={category.id}
             className={`flex flex-col p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border ${category.borderColor} shadow-xl hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group cursor-pointer`}
           >

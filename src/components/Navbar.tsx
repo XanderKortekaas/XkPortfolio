@@ -45,7 +45,7 @@ export default function Navbar({ logo }: { logo: any }) {
   const navLinks = [
     { name: "Projects", href: "#projects" },
     { name: "About me", href: "/about" },
-    { name: "Skills", href: "#skills" },
+    { name: "Skills", href: "/skills" },
   ];
 
   const socials = [

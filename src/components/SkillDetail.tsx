@@ -71,13 +71,13 @@ export default function SkillDetail() {
             {/* Back button */}
             <div className="mt-12 pt-6 border-t border-gray-700/50 flex justify-center">
               <Link
-                to="/"
+                to="/skills"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-gray-600 text-gray-300 hover:border-white hover:text-white transition-all duration-300 group"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
-                Back to home
+                Back to Skills
               </Link>
             </div>
 
