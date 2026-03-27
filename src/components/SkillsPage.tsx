@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { skillCategories } from "../data/skills";
 
 // SVG icons for each category
@@ -22,9 +22,23 @@ const categoryIcons: Record<string, React.ReactElement> = {
 };
 export default function SkillsPage() {
   const navigate = useNavigate();
+  const { hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          const yOffset = -120; // Accounts for navbar and spacing
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [hash]);
 
   return (
     <section className="flex flex-col items-center min-h-screen bg-gray-900 text-white px-6 pt-32 pb-20 relative overflow-hidden"
@@ -58,6 +72,7 @@ export default function SkillsPage() {
             <Link
               to={`/skills/${category.id}`}
               key={category.id}
+              id={category.id}
               className="group block animate-slide-up"
               style={{ animationDelay: `${idx * 120}ms` }}
               onClick={(e) => e.stopPropagation()}
