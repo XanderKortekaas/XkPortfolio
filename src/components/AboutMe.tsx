@@ -19,16 +19,34 @@ const timeline = [
       "Studying software development with a specialization in Game Development.",
   },
   {
-    year: "2023",
-    title: "First Game Projects",
+    year: "2025 - 2026",
+    title: "4th year of study: Game Projects",
     description:
-      "Developed 'Night Racer' in Unity using C# and explored 3D environment design in Unreal Engine.",
+      "Started my second internship at 'MediaHub Ede' where I started learning building an app for the company. After the internship I started preparing for my graduation project.",
   },
   {
-    year: "2022",
+    year: "2024 - 2025",
+    title: "3rd year of study: Game Projects and Internship",
+    description:
+      "Developed 'puzzle game' in Unity using C#. Started first internship at 'Learn and Earn' in Haarlem Where I started learning Web development on my own and started exploring different game engines.",
+  },
+  {
+    year: "2023 - 2024",
+    title: "2nd year of study: Game Projects",
+    description:
+      "Developed 'Night racer' in Unity using C# and participated in a game jam.",
+  },
+  {
+    year: "2022 - 2023",
+    title: "1st year of study: Game Projects",
+    description:
+      "Developed 'Bullet hell' and 'twinstick shooter' in Unity using C#.",
+  },
+  {
+    year: "2022 - 2023",
     title: "Started Learning to Code",
     description:
-      "Took my first steps into programming by mastering the fundamentals of HTML, CSS, and JavaScript.",
+      "Started Learning Game Development study at Grafisch Lyceum Utrecht.",
   },
 ];
 
@@ -66,7 +84,7 @@ export default function AboutMe() {
           <div className="h-[2px] w-16 bg-main-gradient rounded-full mb-4" />
           <p className="text-gray-400 text-lg max-w-md leading-relaxed">
             — Junior Developer focused on continuous growth —
-            always eager to explore new technologies and solve complex problems.
+            always eager to explore new technologies and solve problems.
           </p>
         </div>
 
@@ -81,12 +99,12 @@ export default function AboutMe() {
           </h2>
           <div className="bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
             <p className="text-gray-300 leading-relaxed mb-4">
-              Hi! I'm Xander Kortekaas, a junior developer who loves to make silly things through code, sometimes it means building a game and sometimes it means building a website. I really don't have a preferance in what i need to do i also really like learning new coding languages. 
+              Hi! I'm Xander Kortekaas, a junior developer who loves to make games and websites. 
             </p>
             <p className="text-gray-300 leading-relaxed">
               I'm always eager to learn new technologies and push myself
               beyond my comfort zone. Whether it's crafting a polished UI
-              with React or building game mechanics in Unity, I bring
+              with Web Development or building game mechanics in Unity, I bring
               curiosity and dedication to every project I take on.
             </p>
           </div>
