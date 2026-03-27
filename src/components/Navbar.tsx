@@ -67,6 +67,16 @@ export default function Navbar({ logo }: { logo: any }) {
         </svg>
       ),
     },
+    {
+      name: "Email",
+      href: "mailto:xander.kortekaas@gmail.com",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+          <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+          <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -135,12 +145,7 @@ export default function Navbar({ logo }: { logo: any }) {
             ))}
           </div>
 
-          <a
-            href="mailto:xander.kortekaas@gmail.com"
-            className="hidden sm:block bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-200 text-center"
-          >
-            Contact
-          </a>
+
 
           {/* Hamburger Icon for Mobile */}
           <button
@@ -226,12 +231,7 @@ export default function Navbar({ logo }: { logo: any }) {
             ))}
           </div>
 
-          <a
-            href="mailto:xander.kortekaas@gmail.com"
-            className="bg-blue-600 text-white py-3 rounded-xl font-bold text-center block"
-          >
-            Contact
-          </a>
+
         </div>
       )}
     </nav>
