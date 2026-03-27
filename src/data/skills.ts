@@ -21,7 +21,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React", proficiency: 60 },
       { name: "TypeScript", proficiency: 65 },
-      { name: "Tailwind CSS", proficiency: 60 },
+      { name: "Tailwind CSS", proficiency: 45 },
       { name: "HTML & CSS", proficiency: 65 },
       { name: "JavaScript", proficiency: 70 },
     ],
@@ -36,7 +36,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Unity", proficiency: 65 },
       { name: "C#", proficiency: 60 },
-      { name: "Unreal Engine", proficiency: 60 },
+      { name: "Unreal Engine", proficiency: 40 },
     ],
     color: "from-purple-500/80 to-pink-500/80",
     borderColor: "border-purple-500/30",

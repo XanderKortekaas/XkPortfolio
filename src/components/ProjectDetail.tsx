@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { projects } from "../data/projects";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const project = projects.find((p) => p.id === Number(id));
 
   useEffect(() => {
@@ -27,12 +28,16 @@ export default function ProjectDetail() {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6 pt-28 relative overflow-hidden">
+    <section
+      className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6 pt-28 relative overflow-hidden cursor-pointer"
+      onClick={() => navigate("/")}
+      title="Click background to go home"
+    >
       {/* Background glows */}
       <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent-indigo/15 blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-accent-violet/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-3xl">
+      <div className="relative z-10 w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
 
         {/* Main card */}
         <div className="p-[1px] rounded-2xl bg-main-gradient shadow-2xl animate-fade-in">

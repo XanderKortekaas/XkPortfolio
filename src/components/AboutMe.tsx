@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/Ye.png"
 const skills = [
   "React",
@@ -51,18 +51,23 @@ const timeline = [
 ];
 
 export default function AboutMe() {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <section className="flex flex-col items-center min-h-screen bg-gray-900 text-white px-6 pt-32 pb-20 relative overflow-hidden">
+    <section
+      className="flex flex-col items-center min-h-screen bg-gray-900 text-white px-6 pt-32 pb-20 relative overflow-hidden cursor-pointer"
+      onClick={() => navigate("/")}
+      title="Click background to go home"
+    >
       {/* Background glows — positioned differently than other pages */}
       <div className="absolute top-20 right-1/4 w-80 h-80 bg-accent-violet/12 blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute bottom-32 left-1/4 w-96 h-96 bg-accent-cyan/10 blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-indigo/8 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-3xl space-y-16">
+      <div className="relative z-10 w-full max-w-3xl space-y-16" onClick={(e) => e.stopPropagation()}>
         {/* ── Hero intro ── */}
         <div
           className="flex flex-col items-center text-center animate-fade-in"

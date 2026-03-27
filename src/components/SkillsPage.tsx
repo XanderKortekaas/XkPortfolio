@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { skillCategories } from "../data/skills";
 
 // SVG icons for each category
@@ -20,14 +20,17 @@ const categoryIcons: Record<string, React.ReactElement> = {
     </svg>
   ),
 };
-
 export default function SkillsPage() {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <section className="flex flex-col items-center min-h-screen bg-gray-900 text-white px-6 pt-32 pb-20 relative overflow-hidden">
+    <section className="flex flex-col items-center min-h-screen bg-gray-900 text-white px-6 pt-32 pb-20 relative overflow-hidden"
+      onClick={() => navigate("/")}
+      title="Click background to go home"
+    >
       {/* Background glows */}
       <div className="absolute top-24 left-1/4 w-96 h-96 bg-accent-cyan/8 blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-40 right-1/4 w-80 h-80 bg-accent-violet/10 blur-[160px] rounded-full pointer-events-none" />
@@ -36,7 +39,10 @@ export default function SkillsPage() {
       <div className="relative z-10 w-full max-w-4xl space-y-16">
 
         {/* ── Hero ── */}
-        <div className="flex flex-col items-center text-center animate-fade-in">
+        <div 
+          className="flex flex-col items-center text-center animate-fade-in"
+          onClick={(e) => e.stopPropagation()}
+        >
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-main-gradient mb-3">
             Skills &amp; Technologies
           </h1>
@@ -54,6 +60,7 @@ export default function SkillsPage() {
               key={category.id}
               className="group block animate-slide-up"
               style={{ animationDelay: `${idx * 120}ms` }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div
                 className={`relative rounded-2xl border ${category.borderColor} bg-gray-800/60 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:scale-[1.015] hover:shadow-2xl`}
@@ -117,6 +124,7 @@ export default function SkillsPage() {
           <Link
             to="/"
             className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border-2 border-accent-cyan text-accent-cyan font-bold hover:bg-accent-cyan hover:text-gray-900 transition-all duration-300 group"
+            onClick={(e) => e.stopPropagation()}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />

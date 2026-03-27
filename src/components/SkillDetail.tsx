@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { skillCategories } from "../data/skills";
 
 export default function SkillDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const category = skillCategories.find((c) => c.id === id);
 
   useEffect(() => {
@@ -29,11 +30,15 @@ export default function SkillDetail() {
   const borderGradient = category.color.replace(/\/80/g, '/50');
 
   return (
-    <section className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-6 pt-32 pb-20 relative overflow-hidden">
+    <section
+      className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-6 pt-32 pb-20 relative overflow-hidden cursor-pointer"
+      onClick={() => navigate("/")}
+      title="Click background to go home"
+    >
       {/* Background glow using category colors if possible, else default */}
       <div className={`absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-br ${subtleGlow} blur-[160px] rounded-full pointer-events-none opacity-40`} />
 
-      <div className="relative z-10 w-full max-w-3xl">
+      <div className="relative z-10 w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
         <div className={`p-[1px] rounded-2xl bg-gradient-to-br ${borderGradient} shadow-2xl animate-fade-in`}>
           <div className="rounded-2xl bg-gray-800 p-8 md:p-10">
             <h1 className={`text-3xl md:text-4xl font-extrabold ${category.iconColor} mb-6 tracking-tight drop-shadow-sm`}>

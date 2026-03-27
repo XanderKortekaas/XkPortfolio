@@ -40,7 +40,7 @@ export const projects: Project[] = [
     title: "Night Racer",
     description: "A 3D nighttime racing game.",
     longDescription:
-      "Night Racer is a racing game built in Unity with C#. The player races through a dark nighttime environment with dynamic lighting and obstacles. The project includes game physics, a scoring system, and atmospheric night graphics.",
+      "Night Racer is a racing game built in Unity with C#. The player races through a dark nighttime environment with dynamic lighting and obstacles. The project includes game physics, a timer system, and atmospheric night graphics.",
     tags: ["Unity", "C#"],
     githubUrl: "https://gitlab.glu.nl/220442/nachtrijder",
     highlights: [
