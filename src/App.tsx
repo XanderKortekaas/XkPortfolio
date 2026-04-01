@@ -8,7 +8,7 @@ import SkillsPage from "./components/SkillsPage";
 import SkillDetail from "./components/SkillDetail";
 import Skills from "./components/Skills";
 import NotFound from "./components/NotFound";
-import logo from "./assets/YE.png";
+import logo from "./assets/Mugshot.png";
 
 function HomePage() {
   return (

@@ -100,24 +100,24 @@ export default function Navbar({ logo }: { logo: any }) {
         </div>
        
         {/* DESKTOP LINKS */}
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-2">
           {navLinks.map((link) => (
             <li key={link.name}>
               {link.href.startsWith("#") ? (
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium text-gray-400 hover:text-accent-indigo transition-colors"
+                  className="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-accent-indigo hover:bg-gray-700/60 transition-all duration-200"
                 >
                   {link.name}
                 </a>
               ) : (
                 <Link
                   to={link.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     location.pathname === link.href
-                      ? "text-accent-cyan font-bold drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-                       : "text-gray-400 hover:text-accent-indigo"
+                      ? "text-accent-cyan font-bold drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] bg-gray-700/60"
+                       : "text-gray-400 hover:text-accent-indigo hover:bg-gray-700/60"
                   }`}
                 >
                   {link.name}

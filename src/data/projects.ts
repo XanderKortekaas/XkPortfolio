@@ -24,7 +24,7 @@ export const projects: Project[] = [
     description:
       "My personal portfolio built with React and TypeScript. Showcases my projects and skills with a modern dark theme.",
     longDescription:
-      "This is my personal portfolio website, built to present my projects, skills, and experience. The site is fully built with React and TypeScript, featuring a modern dark theme that uses glassmorphism and gradient accents. Styling is done with Tailwind CSS and the project is built with Vite for fast development and optimal performance.",
+      "This is my personal portfolio website, built to present my projects, skills, and experience. The site I have made with React and Tailwind CSS because I wanted to learn how to make a website with the most used framework and styling library.",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     highlights: [
       "Responsive design that works on all screen sizes",

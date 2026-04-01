@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/Ye.png"
+import logo from "../assets/Mugshot.png"
 const skills = [
   "React",
   "TypeScript",
@@ -110,7 +110,7 @@ export default function AboutMe() {
               I'm always eager to learn new technologies and push myself
               beyond my comfort zone. Whether it's crafting a polished UI
               with Web Development or building game mechanics in Unity, I bring
-              curiosity and dedication to every project I take on.
+                curiosity and dedication to every project I take on.
             </p>
           </div>
         </div>

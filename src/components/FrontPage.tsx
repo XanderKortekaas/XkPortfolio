@@ -8,7 +8,7 @@ export default function FrontPage({ logo }: { logo: any }) {
           <div className="relative p-[2px] rounded-full bg-main-gradient shrink-0">
             <img
               src={logo}
-              className="h-32 w-32 rounded-full border-4 border-gray-800 object-cover"
+              className="h-28 w-28 rounded-full border-4 border-gray-800 object-cover"
               alt="Xander Kortekaas"
             />
           </div>
