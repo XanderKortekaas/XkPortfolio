@@ -33,7 +33,13 @@ export const projects: Project[] = [
       "Component-based architecture with TypeScript",
     ],
     projectType: ["Solo project"],
-    media: [],
+    media: [
+      {
+        type: "image",
+        url: "/media/Portfolio.png",
+        caption: "A screenshot of the portfolio",
+      },
+    ],
   },
   {
     id: 2,
