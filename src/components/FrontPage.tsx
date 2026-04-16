@@ -21,7 +21,7 @@ export default function FrontPage({ logo }: { logo: any }) {
               Junior Developer | Welcome to my portfolio.
             </p>
             <a 
-              href="/cv.pdf"
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
               download="Xander_Kortekaas_CV.pdf"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-main-gradient text-white font-semibold text-sm hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-accent-indigo/25 hover:-translate-y-0.5"
             >
